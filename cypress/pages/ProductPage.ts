@@ -6,7 +6,7 @@ class ProductPage extends BasePage {
         return cy.contains('a.btn-success', 'Add to cart');;
     }
 
-    addProductToCart(){
+    public addProductToCart(){
         cy.intercept('POST', '**/api.demoblaze.com/addtocart').as('addToCart');
         this.addToCartButtonLocator.click();
         cy.wait('@addToCart');

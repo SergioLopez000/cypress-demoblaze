@@ -10,11 +10,11 @@ class CartPage extends BasePage {
         return cy.get('#totalp')
     }
 
-    getProductPriceValue(productName:string){
+    public getProductPriceValue(productName:string){
         return this.getProductPriceLocator(productName).invoke('text');
     }
 
-    getProductsTotalPrice(){
+    public getProductsTotalPrice(){
         return this.getTotalPriceLocator().invoke('text');
     }
 }

@@ -1,18 +1,18 @@
-export default class BasePage {
+export default abstract class BasePage {
 
-    protected get homeNavBarLocator() {
+    private get homeNavBarLocator() {
         return cy.get('a.nav-link[href="index.html"]');
     }
 
-    protected get cartNavBarLocator() {
+    private get cartNavBarLocator() {
         return cy.get('#cartur');
     }
 
-    goToHome() {
+    public goToHome() {
         this.homeNavBarLocator.click();
     }
 
-    goToCart() {
+    public goToCart() {
         this.cartNavBarLocator.click();
     }
 }

@@ -14,19 +14,19 @@ class HomePage extends BasePage {
         return cy.get('.card-block h5').first();
     }
 
-    navigateToDemoBlaze(){
+    public navigateToDemoBlaze(){
         cy.visit('/');
     }
 
-    getFirstElementPrice(){
+    public getFirstElementPrice(){
         return this.cardPriceFirstElementLocator.invoke('text');
     }
 
-    clickFirstElement(){
+    public clickFirstElement(){
         this.firstElementLocator.click();
     }
 
-    navigateToCategory(categoryName: string){
+    public navigateToCategory(categoryName: string){
         cy.intercept('POST', '**/api.demoblaze.com/bycat').as('byCategory');
         this.categoryLocator(categoryName).click();
         cy.wait('@byCategory');
