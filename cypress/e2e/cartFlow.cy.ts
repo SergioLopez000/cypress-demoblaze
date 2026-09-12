@@ -6,31 +6,39 @@ import products from "@fixtures/products.json";
 
 
 describe("Demoblaze - add phone and laptop to cart", () => {
+    let savedPhoneName: string;
     let savedPhonePrice: string;
+    let savedLaptopName: string;
     let savedLaptopPrice: string;
     let expectedTotal: number;
 
     it("adds a phone and a laptop, and validates cart contents and total price", () => {
         homePage.navigateToDemoBlaze();
-        homePage.getFirstElementPrice().then((price) => {
+        homePage.getElementName(0).then((name) => {
+            savedPhoneName = name;
+        });
+        homePage.getElementPrice(0).then((price) => {
             savedPhonePrice = price;
         });
-        homePage.clickFirstElement();
+        homePage.clickElement(0);
         productPage.addProductToCart();
         productPage.goToCart();
         cy.then(() => {
-            cartPage.getProductPriceValue(products.phone.name).should('contain', parsePrice(savedPhonePrice));
+            cartPage.getProductPriceValue(savedPhoneName).should('contain', parsePrice(savedPhonePrice));
         });
         cartPage.goToHome();
         homePage.navigateToCategory(products.laptop.category);
-        homePage.getFirstElementPrice().then((price) => {
+        homePage.getElementName(1).then((name) => {
+            savedLaptopName = name;
+        });
+        homePage.getElementPrice(1).then((price) => {
             savedLaptopPrice = price;
         });
-        homePage.clickFirstElement();
+        homePage.clickElement(1);
         productPage.addProductToCart();
         productPage.goToCart();
         cy.then(() => {
-            cartPage.getProductPriceValue(products.laptop.name).should('contain', parsePrice(savedLaptopPrice));
+            cartPage.getProductPriceValue(savedLaptopName).should('contain', parsePrice(savedLaptopPrice));
         });
         cy.then(() => {
             expectedTotal = parsePrice(savedPhonePrice) + parsePrice(savedLaptopPrice);

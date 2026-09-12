@@ -6,24 +6,28 @@ class HomePage extends BasePage {
         return cy.get('.list-group').contains('a', categoryName);
     }
 
-    private get firstElementLocator() {
-        return cy.get('.card-title a').first();
+    private elementLocator(index: number) {
+        return cy.get('.card-title a').eq(index);
     }
 
-    private get cardPriceFirstElementLocator() {
-        return cy.get('.card-block h5').first();
+    private cardPriceLocator(index: number) {
+        return cy.get('.card-block h5').eq(index);
     }
 
     public navigateToDemoBlaze(){
         cy.visit('/');
     }
 
-    public getFirstElementPrice(){
-        return this.cardPriceFirstElementLocator.invoke('text');
+    public getElementName(index: number){
+        return this.elementLocator(index).invoke('text').then((text) => text.trim());
     }
 
-    public clickFirstElement(){
-        this.firstElementLocator.click();
+    public getElementPrice(index: number){
+        return this.cardPriceLocator(index).invoke('text');
+    }
+
+    public clickElement(index: number){
+        this.elementLocator(index).click();
     }
 
     public navigateToCategory(categoryName: string){
