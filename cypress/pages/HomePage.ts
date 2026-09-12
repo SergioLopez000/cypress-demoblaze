@@ -7,7 +7,7 @@ class HomePage extends BasePage {
     }
 
     private get firstElementLocator() {
-        return cy.get('.card-title').first();
+        return cy.get('.card-title a').first();
     }
 
     private get cardPriceFirstElementLocator() {

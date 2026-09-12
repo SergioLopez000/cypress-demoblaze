@@ -10,11 +10,6 @@ describe("Demoblaze - add phone and laptop to cart", () => {
     let savedLaptopPrice: string;
     let expectedTotal: number;
 
-    beforeEach(() => {
-        cy.on('window:alert', () => true);
-        cy.on('window:confirm', () => true);
-    });
-
     it("adds a phone and a laptop, and validates cart contents and total price", () => {
         homePage.navigateToDemoBlaze();
         homePage.getFirstElementPrice().then((price) => {
