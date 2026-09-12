@@ -5,7 +5,7 @@ Cypress E2E suite for [demoblaze.com](https://www.demoblaze.com/), using Page Ob
 
 The suite follows the Page Object Model: DOM selectors stay private inside each page class, only actions are exposed, and shared navbar behavior lives in an abstract BasePage that every page extends.
 
-Product prices are fetched dynamically at runtime instead of hardcoded, so the suite keeps working if prices change.
+Product prices and names are fetched dynamically at runtime instead of hardcoded, so the suite keeps working if prices change.
 
 Path aliases (`@pages/*`, `@support/*`, `@fixtures/*`, from `tsconfig.json`) keep imports stable regardless of how deep a file lives, instead of
 relying on fragile relative paths like `../../pages/HomePage`.
