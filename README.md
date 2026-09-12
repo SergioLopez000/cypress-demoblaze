@@ -50,6 +50,12 @@ npm run allure:generate
 npm run allure:open
 ```
 
+## CI
+
+GitHub Actions runs the Chrome headless suite on every push/PR to `main` and uploads the Allure results as an artifact. It can also be triggered manually from the Actions tab ("Run workflow").
+
+Workflow file: [`.github/workflows/cypress.yml`](.github/workflows/cypress.yml)
+
 ## Structure
 
 ```
