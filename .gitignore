@@ -4,3 +4,5 @@ cypress/screenshots/
 cypress/downloads/
 dist/
 .atl/
+allure-results/
+allure-report/

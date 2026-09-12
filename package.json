@@ -8,10 +8,14 @@
     "cy:run": "cypress run",
     "cy:run:chrome": "cypress run --browser chrome",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report"
   },
   "devDependencies": {
     "@types/node": "^22.20.2",
+    "allure-commandline": "^2.43.0",
+    "allure-cypress": "^3.12.1",
     "cypress": "^13.17.0",
     "eslint": "^10.10.0",
     "eslint-plugin-check-file": "^3.3.2",
